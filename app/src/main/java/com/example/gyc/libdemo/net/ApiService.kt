@@ -13,6 +13,10 @@ import retrofit2.http.POST
  * Date: 2019-02-20 下午 2:41
  */
 interface ApiService{
-    @POST("api.php")
+    companion object {
+        private const val BASE_PATH="api.php"
+    }
+
+    @POST(BASE_PATH)
     fun getPosts(@Body body: RequestBody): Observable<ClientBean>
 }
