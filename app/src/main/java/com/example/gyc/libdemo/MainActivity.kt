@@ -1,35 +1,26 @@
 package com.example.gyc.libdemo
 
-import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.Observer
 import com.example.gyc.libdemo.base.BaseActivity
-import com.example.gyc.libdemo.net.BodyFactory
-import com.example.gyc.libdemo.net.HttpClient
 import com.example.gyc.libdemo.viewmodel.MainViewModel
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
+import kotlinx.android.synthetic.main.activity_main.*
 
 
-class MainActivity : BaseActivity() {
-    override fun setViewModel(): ViewModel {
-        return MainViewModel()
+class MainActivity : BaseActivity<MainViewModel>() {
+    override fun setViewModel(): Class<MainViewModel> {
+        return MainViewModel::class.java
     }
 
-
-    @SuppressLint("CheckResult")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        HttpClient.getApi()
-            .getPosts(BodyFactory.generalBody("GetClients"))
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({ t ->
-                Log.d("11111", t.toString())
-            }, { e ->
-                Log.d("11111", e.toString())
-            })
+        baseViewModel.getClient().observe(this, Observer { t ->
+            tv.text = t
+        })
+        button.setOnClickListener {
+            startActivity(Intent(this, TestActivity::class.java))
+        }
     }
 }

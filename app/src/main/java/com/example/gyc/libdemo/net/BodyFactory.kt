@@ -16,6 +16,7 @@ object BodyFactory {
 
     /**
      * 生成通用requestBody
+     * 以form-data形式发送数据
      */
     fun generalBody(action: String): RequestBody {
         return MultipartBody.Builder()

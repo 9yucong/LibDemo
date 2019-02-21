@@ -18,5 +18,5 @@ interface ApiService{
     }
 
     @POST(BASE_PATH)
-    fun getPosts(@Body body: RequestBody): Observable<ClientBean>
+    fun getClient(@Body body: RequestBody): Observable<ClientBean>
 }
