@@ -1,7 +1,6 @@
-package com.example.gyc.libdemo
+package com.example.gyc.libdemo.utils
 
 import io.reactivex.ObservableTransformer
-import io.reactivex.Scheduler
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 

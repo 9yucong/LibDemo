@@ -1,6 +1,6 @@
-package com.example.gyc.libdemo
+package com.example.gyc.libdemo.model
 
-import android.util.Log
+import com.example.gyc.libdemo.utils.RxSchedulers
 import com.example.gyc.libdemo.bean.ClientBean
 import com.example.gyc.libdemo.net.BodyFactory
 import com.example.gyc.libdemo.net.HttpClient

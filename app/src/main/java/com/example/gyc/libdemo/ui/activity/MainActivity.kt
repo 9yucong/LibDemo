@@ -1,4 +1,4 @@
-package com.example.gyc.libdemo
+package com.example.gyc.libdemo.ui.activity
 
 import android.content.Intent
 import android.os.Bundle

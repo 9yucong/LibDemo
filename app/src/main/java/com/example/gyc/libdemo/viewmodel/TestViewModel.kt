@@ -2,7 +2,7 @@ package com.example.gyc.libdemo.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
-import com.example.gyc.libdemo.RxSchedulers
+import com.example.gyc.libdemo.utils.RxSchedulers
 import com.example.gyc.libdemo.base.BaseViewModel
 import io.reactivex.Observable
 import io.reactivex.rxkotlin.addTo
