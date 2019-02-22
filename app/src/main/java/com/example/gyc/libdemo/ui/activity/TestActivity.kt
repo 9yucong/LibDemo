@@ -2,6 +2,7 @@ package com.example.gyc.libdemo.ui.activity
 
 import android.os.Bundle
 import androidx.lifecycle.Observer
+import com.example.gyc.libdemo.R
 import com.example.gyc.libdemo.base.BaseActivity
 import com.example.gyc.libdemo.viewmodel.TestViewModel
 import kotlinx.android.synthetic.main.activity_main.*
