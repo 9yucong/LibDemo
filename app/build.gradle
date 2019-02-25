@@ -23,7 +23,7 @@ android {
 }
 greendao {
     schemaVersion 1
-    daoPackage 'com.example.gyc.libdemo.greendao'
+    daoPackage 'com.example.gyc.greendao'
     targetGenDir 'src/main/java'
 }
 

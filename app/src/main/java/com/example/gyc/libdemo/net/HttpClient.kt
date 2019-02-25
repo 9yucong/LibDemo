@@ -25,6 +25,7 @@ import okhttp3.Interceptor
 class HttpClient private constructor() {
     //url对应retrofit存储在map中
     private val retrofitMap = ConcurrentHashMap<String, Retrofit>()
+    private val apiServiceMap = ConcurrentHashMap<String, ApiService>()
     private var baseUrl: String? = null
 
     companion object {
@@ -40,19 +41,25 @@ class HttpClient private constructor() {
                 if (it == null) {
                     throw NullPointerException("没有使用baseUrl设置默认url")
                 } else {
-                    return instance.retrofitMap[instance.baseUrl]!!.create(ApiService::class.java)
+                    return getApi(it)
                 }
             }
         }
 
+        /**
+         * 根据url返回apiService对象
+         */
         fun getApi(url: String): ApiService {
-            return instance.retrofitMap[url]!!.create(ApiService::class.java)
+            instance.apiServiceMap[url].let {
+                if (it == null) {
+                    throw NullPointerException("没有使用addUrl根据url设置apiService")
+                } else {
+                    return it
+                }
+            }
         }
     }
 
-    private fun init(context: Context): OkHttpClient {
-        return newOkHttpClient(context)
-    }
 
     private fun baseUrl(url: String, okHttpClient: OkHttpClient) {
         baseUrl = url
@@ -60,7 +67,9 @@ class HttpClient private constructor() {
     }
 
     private fun addUrl(url: String, okHttpClient: OkHttpClient) {
-        retrofitMap[url] = newRetrofit(url, okHttpClient)
+        val retrofit = newRetrofit(url, okHttpClient)
+        retrofitMap[url] = retrofit
+        apiServiceMap[url] = retrofit.create(ApiService::class.java)
     }
 
     /**
@@ -100,7 +109,7 @@ class HttpClient private constructor() {
     }
 
     class Builder(context: Context, private var httpClient: HttpClient) {
-        private var okHttpClient: OkHttpClient = httpClient.init(context)
+        private var okHttpClient: OkHttpClient = httpClient.newOkHttpClient(context)
 
         fun baseUrl(url: String): Builder {
             httpClient.baseUrl(url, okHttpClient)
