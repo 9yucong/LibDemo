@@ -30,8 +30,16 @@ public class Student {
     public Student() {
     }
 
+    public long getId() {
+        return this.id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public void setName(String name) {
@@ -39,19 +47,11 @@ public class Student {
     }
 
     public int getAge() {
-        return age;
+        return this.age;
     }
 
     public void setAge(int age) {
         this.age = age;
-    }
-
-    public long getId() {
-        return this.id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public String getGender() {
@@ -61,4 +61,6 @@ public class Student {
     public void setGender(String gender) {
         this.gender = gender;
     }
+
+
 }

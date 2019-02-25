@@ -30,5 +30,6 @@ class MainActivity : BaseActivity<MainViewModel>() {
         student.name = "a"
         student.gender="男"
         DBManager.getDaoSession().studentDao.insertOrReplace(student)
+        val list=DBManager.getDaoSession().studentDao.queryBuilder().list()
     }
 }
