@@ -16,24 +16,18 @@ public class Student {
     private long id;
     private String name;
     private int age;
+    private String gender;
 
-    @Generated(hash = 1156616942)
-    public Student(long id, String name, int age) {
+    @Generated(hash = 881070470)
+    public Student(long id, String name, int age, String gender) {
         this.id = id;
         this.name = name;
         this.age = age;
+        this.gender = gender;
     }
 
     @Generated(hash = 1556870573)
     public Student() {
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -50,5 +44,21 @@ public class Student {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public long getId() {
+        return this.id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getGender() {
+        return this.gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 }

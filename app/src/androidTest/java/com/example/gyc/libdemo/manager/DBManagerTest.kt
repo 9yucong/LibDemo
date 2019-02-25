@@ -1,7 +1,7 @@
 package com.example.gyc.libdemo.manager
 
-import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4
+import com.example.gyc.libdemo.db.DBManager
 import org.junit.Assert.*
 import org.junit.Test
 import org.junit.runner.RunWith

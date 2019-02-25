@@ -1,7 +1,7 @@
 package com.example.gyc.libdemo
 
 import android.app.Application
-import com.example.gyc.libdemo.manager.DBManager
+import com.example.gyc.libdemo.db.DBManager
 import com.example.gyc.libdemo.net.HttpClient
 
 /**

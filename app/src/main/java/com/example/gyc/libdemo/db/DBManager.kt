@@ -1,4 +1,4 @@
-package com.example.gyc.libdemo.manager
+package com.example.gyc.libdemo.db
 
 import android.app.Application
 import android.content.Context
@@ -17,7 +17,7 @@ class DBManager private constructor(context: Context) {
     private var daoSession: DaoSession
 
     init {
-        devOpenHelper = DaoMaster.DevOpenHelper(context, DB_NAME)
+        devOpenHelper = UpgradeSQLiteHelper(context, DB_NAME)
         daoMaster = DaoMaster(devOpenHelper.writableDatabase)
         daoSession = daoMaster.newSession()
     }
@@ -28,7 +28,9 @@ class DBManager private constructor(context: Context) {
 
         fun init(application: Application) =
             instance ?: synchronized(this) {
-                instance ?: DBManager(application).also { instance = it }
+                instance ?: DBManager(
+                    application
+                ).also { instance = it }
             }
 
         fun getDaoMaster(): DaoMaster {
