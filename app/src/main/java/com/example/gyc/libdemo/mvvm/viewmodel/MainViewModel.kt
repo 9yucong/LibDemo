@@ -1,8 +1,8 @@
-package com.example.gyc.libdemo.viewmodel
+package com.example.gyc.libdemo.mvvm.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
-import com.example.gyc.libdemo.model.ClientModel
+import com.example.gyc.libdemo.mvvm.model.ClientModel
 import com.example.gyc.libdemo.base.BaseViewModel
 import io.reactivex.rxkotlin.addTo
 
@@ -24,6 +24,4 @@ class MainViewModel : BaseViewModel() {
         }).addTo(baseDisposable)
         return clientLiveData
     }
-
-
 }

@@ -1,6 +1,6 @@
 package com.example.gyc.libdemo.net
 
-import com.example.gyc.libdemo.bean.ClientBean
+import com.example.gyc.libdemo.net.model.ClientBean
 import io.reactivex.Observable
 import okhttp3.RequestBody
 import retrofit2.http.Body

@@ -1,7 +1,7 @@
-package com.example.gyc.libdemo.model
+package com.example.gyc.libdemo.mvvm.model
 
 import com.example.gyc.libdemo.utils.RxSchedulers
-import com.example.gyc.libdemo.bean.ClientBean
+import com.example.gyc.libdemo.net.model.ClientBean
 import com.example.gyc.libdemo.net.BodyFactory
 import com.example.gyc.libdemo.net.HttpClient
 import io.reactivex.disposables.Disposable

@@ -1,4 +1,4 @@
-package com.example.gyc.libdemo.bean
+package com.example.gyc.libdemo.net.model
 
 /**
  * Description:

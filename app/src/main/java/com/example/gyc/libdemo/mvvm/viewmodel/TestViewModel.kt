@@ -1,4 +1,4 @@
-package com.example.gyc.libdemo.viewmodel
+package com.example.gyc.libdemo.mvvm.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
